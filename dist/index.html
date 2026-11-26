@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#062d46">
+    <meta name="description" content="Tide Budget is a personal budgeting app for macOS with local budget storage and optional read-only credit card activity through Plaid.">
+    <link rel="icon" href="tide-icon.png" type="image/png">
+    <title>Tide Budget · Personal budgeting for macOS</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: system-ui, sans-serif;
+        background: #062d46;
+        color: #f1f8fa;
+        --mint: #52d6b5;
+        --muted: #bcdae1;
+        --line: #84c5ce35;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(ellipse at 72% 8%, #10536b, transparent 48rem);
+      }
+      .container { width: min(68rem, calc(100% - 3rem)); margin-inline: auto; }
+      header, footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-block: 1.15rem;
+      }
+      header { border-bottom: 1px solid var(--line); }
+      .wordmark { display: flex; align-items: center; gap: .55rem; font-weight: 750; }
+      .wordmark img { width: 2.3rem; height: auto; }
+      a { color: var(--mint); text-underline-offset: .28em; }
+      a:focus-visible { outline: 2px solid var(--mint); outline-offset: .3rem; }
+      .hero {
+        min-height: 28rem;
+        display: grid;
+        grid-template-columns: 1.15fr .85fr;
+        align-items: center;
+        gap: 1rem;
+        padding-block: 3rem;
+      }
+      h1, h2, p { margin: 0; }
+      h1 { font-size: clamp(3rem, 8vw, 5.75rem); letter-spacing: -.07em; line-height: 1; }
+      h2 { font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.035em; }
+      p { font-size: 1rem; line-height: 1.65; color: var(--muted); }
+      .hero p { max-width: 33rem; margin-top: 1.25rem; font-size: clamp(1.1rem, 2vw, 1.35rem); }
+      .hero-image { width: min(100%, 24rem); height: auto; justify-self: center; }
+      .details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 3rem;
+        padding-block: 2.5rem 3rem;
+        border-block: 1px solid var(--line);
+      }
+      .details h2 { margin-bottom: .85rem; }
+      .details p + p { margin-top: .8rem; }
+      footer p { font-size: .9rem; }
+      @media (max-width: 42rem) {
+        .container { width: calc(100% - 2.5rem); }
+        .hero { grid-template-columns: 1fr; min-height: auto; padding-block: 3rem 1.25rem; }
+        .hero-image { width: min(65%, 16rem); }
+        .details { grid-template-columns: 1fr; }
+        .wordmark img { width: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <span class="wordmark"><img src="tide-icon.png" width="1024" height="1024" alt="">Tide Budget</span>
+      <nav aria-label="About Tide"><a href="#privacy">Data &amp; privacy</a></nav>
+    </header>
+    <main class="container">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <h1 id="title">Tide Budget</h1>
+          <p>A personal budgeting app for macOS. Plan monthly spending, track savings goals, and review posted credit card activity.</p>
+        </div>
+        <img class="hero-image" src="tide-icon.png" width="1024" height="1024" alt="">
+      </section>
+      <div class="details" id="privacy">
+        <section aria-labelledby="connections">
+          <h2 id="connections">How card sync works</h2>
+          <p>Tide uses Plaid to read posted transactions from a credit card you choose to connect. You sign in and authorize access through Plaid Link. The connection provides read-only transaction access.</p>
+        </section>
+        <section aria-labelledby="storage">
+          <h2 id="storage">What Tide stores</h2>
+          <p>Tide stores imported transactions in an encrypted database on your Mac and keeps Plaid access tokens in macOS Keychain.</p>
+          <p>In Card activity, disconnect the card to revoke Tide’s Plaid access. You can then delete imported history from your Mac.</p>
+        </section>
+      </div>
+    </main>
+    <footer class="container"><p>Tide Budget for macOS</p></footer>
+  </body>
+</html>
